@@ -2,8 +2,35 @@
 <templates xml:space="preserve">
 
     <t t-name="awesome_owl.playground">
-        <div class="p-3">
-            hello world
+        <div class="selector_container align-items-center justify-content-center m-2 d-flex gap-3">
+            <t t-foreach="sections" t-as="section" t-key="section">
+                <div>
+                    <span t-attf-name="{{section}}" 
+                    t-attf-class="btn {{state.current_section == section ? 'btn-secondary' : 'btn-primary'}}" 
+                    t-esc="sections[section]" 
+                    t-on-click="() => this.changeSection(section)"/>
+                </div>
+            </t>
+        </div>
+        <div class="playground_container d-flex flex-column justify-content-center align-items-center" style="width: 100%; height: 100%; background-color: #c8c3c3">
+            <div class="counters_container row gap-3 border p-3 m-3" style="height: fit-content; min-width: 390px; background-color: white" t-if="state.current_section === 'counter'">
+                <div class="message_container col d-flex text-center align-items-center p-3" style="white-space: nowrap">
+                    The sum is: <t t-esc="state.sum" />
+                </div>
+                <Counter onChange.bind="incrementSum"/>
+                <Counter onChange.bind="incrementSum"/>
+            </div>
+            <div class="cards_container row gap-3 border p-3 m-3 justify-content-center" style="height: fit-content; min-width: fit-content;  background-color: white" t-if="state.current_section === 'card'">
+                <Card title="'Card 1'">
+                    <span>Hello World</span>
+                </Card>
+                <Card title="'Card 2'" >
+                    <Counter />
+                </Card>
+            </div>
+            <div class="todolist_container row border p-3 m-3 justify-content-center" style="height: fit-content; min-width: fit-content;  background-color: white" t-if="state.current_section === 'todo_list'">
+                <TodoList />
+            </div>
         </div>
     </t>
 

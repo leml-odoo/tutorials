@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="awesome_owl.card">
+        <div class="card d-inline-block m-2" style="width: 18rem;">
+            <div class="card-body">
+                <span class="d-flex align-items-center gap-3">
+                    <h5 class="card-title" t-esc="props.title"/> 
+                    <span role="button" class="fa mb-2" t-att-class="{'opacity-50 fa-eye-slash': !state.open, 'fa-eye': state.open}" t-on-click="this.toggleContent"/>
+                </span>
+                <p class="card-text" t-slot="default" t-if="state.open"/>
+                <span t-if="!state.open" class="fs-3">...</span>
+            </div>
+        </div>
+    </t>
+</templates>
