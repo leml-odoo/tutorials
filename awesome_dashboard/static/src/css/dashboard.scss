@@ -1,0 +1,19 @@
+.o_dashboard {
+    background-color: gray;
+    height: 100%;
+    padding: 0.50rem;
+    overflow-y: auto;
+
+    .o_dashboard_card {
+        width: auto;
+        height: fit-content !important;
+        white-space: nowrap;
+    }
+
+    @media (max-width: 767px) {
+        .o_dashboard_card {
+            width: 100%;
+            white-space: wrap;
+        }
+    }
+}

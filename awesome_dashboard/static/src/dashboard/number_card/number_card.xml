@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="awesome_dashboard.number_card">
+        <div class="card-body text-center">
+            <span class="d-flex align-items-center gap-3 justify-content-center" >
+                <h5 class="card-title"> 
+                    <t t-esc="props.title" />
+                </h5> 
+            </span>
+            <div class="card-text text-success fs-1 fw-bold">
+                <p t-esc="props.value" />
+            </div>
+        </div>
+    </t>
+</templates>
